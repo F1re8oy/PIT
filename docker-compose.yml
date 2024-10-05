@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_pit
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqladminpassword
+      MYSQL_DATABASE: auto
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - C:\Users\ronal\OneDrive\Documents\RTU\3.kurss_1.semestris\PIT\DB_data:/docker-entrypoint-initdb.d # Correct for SQL data directory
+      - C:\Users\ronal\OneDrive\Documents\RTU\3.kurss_1.semestris\mysql_persistent:/var/lib/mysql  # Correct Windows path format for Docker persistent storage
+    ports:
+      - "3306:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+    # restart: always
