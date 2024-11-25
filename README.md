@@ -1,7 +1,7 @@
 # PIT
 RTU PIT kurss
 ## Project Setup
-
+`Go to PIT/majaslapa and run command:`
 ```sh
 npm install
 ```
