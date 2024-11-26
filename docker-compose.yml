@@ -8,8 +8,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     volumes:
-      - C:\Users\ronal\OneDrive\Documents\RTU\3.kurss_1.semestris\PIT\DB_data:/docker-entrypoint-initdb.d # Correct for SQL data directory
-      - C:\Users\ronal\OneDrive\Documents\RTU\3.kurss_1.semestris\mysql_persistent:/var/lib/mysql  # Correct Windows path format for Docker persistent storage
+      - "./DB_data:/docker-entrypoint-initdb.d"
     ports:
       - "3306:3306"
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

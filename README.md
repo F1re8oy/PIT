@@ -17,4 +17,8 @@ npm run dev
 ```sh
 npm run build
 ```
+### To run all processes
 
+```sh
+./startup.sh start
+```
