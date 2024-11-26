@@ -11,7 +11,10 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "daisyui": "^4.12.14",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4",
     "vue": "^3.5.12"
   },
   "devDependencies": {
