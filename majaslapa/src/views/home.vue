@@ -1,30 +1,16 @@
-<template>
+  <template>
     <div class="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       <main class="text-center py-12">
         <h1 class="text-4xl font-extrabold text-gray-800 mb-10">Kādu mašīnu meklējat?</h1>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-screen-lg mx-auto w-full">
-          <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition">
-            <img
-              src="https://www.bmw-me.com/content/dam/bmw/common/all-models/m-series/series-overview/bmw-m-series-seo-overview-ms-02.jpg/jcr:content/renditions/cq5dam.resized.img.890.medium.time1628247931789.jpg"
-              alt="BMW"
-              class="w-full h-[300px] object-cover"
-            />
-          </div>
-          <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition">
-            <img
-              src="https://hips.hearstapps.com/hmg-prod/images/2023-mercedes-amg-c63-s-e-performance-109-65d79697e865a.jpg?crop=0.587xw:0.659xh;0.119xw,0.261xh&resize=768:*"
-              alt="Mercedes"
-              class="w-full h-[300px] object-cover"
-            />
-          </div>
-          <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition">
-            <img
-              src="https://www.topgear.com/sites/default/files/2023/09/33136-RS7PERFORMANCEASCARIBLUEJORDANBUTTERS208.jpg?w=892&h=502"
-              alt="Audi"
-              class="w-full h-[300px] object-cover"
-            />
+          <div
+            v-for="marka in markas"
+            :key="marka.Marka"
+            class="rounded-xl shadow-xl p-6 bg-white transform hover:scale-105 transition"
+          >
+            <h2 class="text-2xl font-bold text-gray-800">{{ marka.Marka }}</h2>
           </div>
         </div>
         <div class="mt-10">
@@ -35,14 +21,37 @@
       </main>
     </div>
   </template>
+
   
   <script>
   import Navbar from "../Components/Navbar.vue";
-  
+
   export default {
     name: "Home",
     components: {
       Navbar,
+    },
+    data() {
+      return {
+        markas: [], // Array to store Marka data
+      };
+    },
+    methods: {
+      async fetchMarkas() {
+        try {
+          const response = await fetch("http://localhost:3000/api/markas");
+          if (!response.ok) {
+            throw new Error(`Error fetching data: ${response.statusText}`);
+          }
+          const data = await response.json();
+          this.markas = data;
+        } catch (error) {
+          console.error("Error fetching markas:", error.message);
+        }
+      },
+    },
+    created() {
+      this.fetchMarkas(); // Fetch data when the component is created
     },
   };
   </script>
