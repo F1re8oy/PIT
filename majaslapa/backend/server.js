@@ -38,7 +38,7 @@ app.get('/api/markas', (req, res) => {
 });
 
 app.get('/api/apraksts', (req, res) => {
-    const query = 'SELECT Apraksts, Dibinatajs, Dibinasanas_gads FROM Markas';
+    const query = 'SELECT Marka, Apraksts, Dibinatajs, Dibinasanas_gads FROM Markas';
     db.query(query, (err, results) => {
       if (err) {
         console.error('Error fetching data:', err.message);
@@ -50,7 +50,7 @@ app.get('/api/apraksts', (req, res) => {
   });
 
 app.get('/api/modelis', (req, res) => {
-  const query = 'SELECT Modelis FROM Modeli';
+  const query = 'SELECT ID_markas, Modelis, Nosaukums FROM Modeli';
   db.query(query, (err, results) => {
     if (err) {
       console.error('Error fetching data:', err.message);
