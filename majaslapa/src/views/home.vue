@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen bg-gray-50">
       <Navbar />
-  
+      
       <main class="text-center py-12">
         <h1 class="text-4xl font-extrabold text-gray-800 mb-10">Kādu mašīnu meklējat?</h1>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-screen-lg mx-auto w-full">
