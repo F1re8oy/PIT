@@ -18,6 +18,7 @@ npm run dev
 npm run build
 ```
 ### To run all processes
+### vajag installet docker!
 
 ```sh
 ./startup.sh start
