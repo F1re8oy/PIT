@@ -1,25 +1,32 @@
 # PIT
 RTU PIT kurss
 ## Project Setup
-`Go to PIT/majaslapa and run command:`
+`In terminal run commands:`
+
 ```sh
-npm install
+cd majaslapa/backend
+docker-compose up -d
 ```
 
-### Compile and Hot-Reload for Development
+`Wait 5seconds and continue `
+
+```sh
+node server.js
+```
+`In second terminal run command:`
+
+```sh
+cd majaslapa
+npm install
+```
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
 ### To run all processes
-### vajag installet docker!
-
+### Vajag installet docker!
+Starts all but don't stop some proceses, they stack.
 ```sh
 ./startup.sh start
 ```
